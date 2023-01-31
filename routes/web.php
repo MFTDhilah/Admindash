@@ -15,11 +15,13 @@ use App\Http\Controllers\PostsController;
 |
 */
 
+
+
+Auth::routes();
+
 Route::get('/', function () {
 	return view('welcome');
 });
-
-Auth::routes();
 
 Route::controller(DashboardController::class)->group(function () {
 	Route::get('/dashboard', 'index');
