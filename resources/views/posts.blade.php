@@ -25,6 +25,9 @@
   <section class="content">
     <div class="container-fluid">
       <div class="row">
+        <div class="col-sm-6">
+            <h1 class="m-0">Gambar Welcoming</h1>
+          </div><!-- /.col -->
         <div class="col-12">
           @if ($errors->any())
           <div class="alert alert-danger">
@@ -40,7 +43,7 @@
           @endif
           <div class="card">
             <!-- /.card-header -->
-            <div class="card-body">              
+            <div class="card-body">
               <div class="col-md-2 float-sm-right my-2">
                 <a href="{{url()->previous()}}"><button type="button" class="btn btn-sm btn-primary btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back</button></a>
               </div>
@@ -54,7 +57,7 @@
                     <th>Name</th>
                     <th>Image</th>
                     <th>Content</th>
-                    <th>Status</th>                     
+                    <th>Status</th>
                     <th>Action</th>
                   </tr>
                 </thead>
@@ -64,7 +67,7 @@
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$data->name}}</td>
-                    <td>
+                    <td> 
                       @if($data->image)
                       <img src="data:image/png;base64,{{$data->image}}" class="img-fluid" style="max-width: 200px" />
                       @endif
@@ -90,7 +93,7 @@
                   </tr>
                   @endforeach
                   @endif
-                </tbody>                
+                </tbody>
               </table>
             </div>
             <!-- /.card-body -->

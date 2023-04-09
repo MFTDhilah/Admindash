@@ -25,7 +25,7 @@ class PostsController extends Controller
         $page_title = "Posts";
 
         $posts = Posts::where('status','!=',9)->get();
-        
+
         return view('posts',compact('page_title','posts'));
     }
 
@@ -71,7 +71,7 @@ class PostsController extends Controller
         $post->slug = $slug;
         $post->content = $request->content;
         $post->status = 1;
-        
+
         if($request->file('postimage')){
             $path = $request->file('postimage')->getRealPath();
             $image = file_get_contents($path);
@@ -150,7 +150,7 @@ class PostsController extends Controller
 
         //Generate Slug
         if($request->name != $thispost->name){
-           $slug = str()->slug($request->name."-".time());  
+           $slug = str()->slug($request->name."-".time());
         }
         else{
              $slug = $thispost->slug;
@@ -215,7 +215,7 @@ class PostsController extends Controller
             return redirect()->back()->with('msg','Post not found');
         }
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
