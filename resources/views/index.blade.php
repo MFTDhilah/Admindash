@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,17 +60,31 @@
     </nav>
   </header>
   <div class="banner">
+=======
+@extends('layouts.appland')
+@section('content')
+
+@include('layouts.partials.navland')
+
+<div class="banner">
+>>>>>>> Stashed changes
     <div class="container">
         <div class="row align-items-center">
           <div class="col-12 col-lg-7 grid-margin-lg-0" data-aos="fade-right">
             <h3 class="m-0 text-danger">Red Facial and<br>Body Treatment</h3>
             <div class="col-lg-7 col-xl-6 p-0">
+<<<<<<< Updated upstream
               <p class="py-4 m-0 text-muted ">Red facial and body treatment adalah jasa layanan perawatan wajah, tubuh, rambut dan kuku untuk pria dan wanita</p>
               <p class="font-weight-medium text-muted">berlokasi di Balikpapan, Kalimantan Timur</p>
+=======
+              <p class="py-4 m-0 text-muted ">Red facial and body treatment adalah sebuah tempat yang menyediakan jasa layanan untuk perawatan wajah, tubuh, rambut dan kuku untuk pria dan wanita</p>
+              <p class="font-weight-medium text-muted">berlokasi di Jl. Strat 2, Gang Mulyo, Gunung Samarinda, Balikpapan, Kalimantan Timur</p>
+>>>>>>> Stashed changes
             </div>
           </div>
           <div class="col-12 col-lg-5 p-0 img-digital grid-margin-lg-0" data-aos="fade-left">
             <div class="owl-carousel1 owl-theme">
+<<<<<<< Updated upstream
                 <div class="card customer-cards">
                   <div class="card-body">
                     <div class="text-center">
@@ -120,10 +135,27 @@
                     <div class="text-center">
                       <img src="{{ asset('landingpage/images/face20.jpg') }}" width="89" height="89" alt="" class="img-fluid">
                       <p class="m-0 py-3 text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
+=======
+              @if(isset($posts))
+              @foreach($posts as $data)
+              @if($data->status==1)
+                <div class="card customer-cards">
+                  <div class="card-body">
+                    <div class="text-center">
+                      
+                      <img src="data:image/png;base64,{{$data->image}}" width="89" height="89" alt="" class="img-fluid" style="height: 250px;">
+                      <p class="m-0 py-3 text-muted">{{$data->content}}</p>
+>>>>>>> Stashed changes
                       <button class="btn btn-info">Readmore</button>
                     </div>
                   </div>
                 </div>
+<<<<<<< Updated upstream
+=======
+              @endif
+              @endforeach
+              @endif
+>>>>>>> Stashed changes
             </div>
           </div>
         </div>
@@ -131,7 +163,11 @@
   </div>
   <div class="content-wrapper">
     <div class="container">
+<<<<<<< Updated upstream
       <section class="case-studies" id="case-studies-section">
+=======
+      <section class="services" id="services-section">
+>>>>>>> Stashed changes
         <div class="row grid-margin" style="justify-content:center">
           <div class="col-12 text-center pb-5">
             <h2>Our Services</h2>
@@ -142,12 +178,22 @@
               <div class="card-body p-0">
                 <div class="bg-primary text-center card-contents">
                   <div class="card-image">
+<<<<<<< Updated upstream
                     <img src="{{ asset('landingpage/images/Group95.svg') }}" class="case-studies-card-img" alt="">
+=======
+                    <img src="{{ asset('landingpage/images/Group95.svg') }}" class="services-card-img" alt="">
+>>>>>>> Stashed changes
                   </div>
                   <div class="card-desc-box d-flex align-items-center justify-content-around">
                     <div>
                       <h6 class="text-white pb-2 px-3">Know more about Facial Treatment</h6>
+<<<<<<< Updated upstream
                       <button class="btn btn-white">Read More</button>
+=======
+                      <a href="/facial">
+                      <button class="btn btn-white">Read More</button>
+                      </a>
+>>>>>>> Stashed changes
                     </div>
                   </div>
                 </div>
@@ -163,12 +209,22 @@
               <div class="card-body p-0">
                 <div class="bg-warning text-center card-contents">
                   <div class="card-image">
+<<<<<<< Updated upstream
                       <img src="{{ asset('landingpage/images/Group108.svg') }}" class="case-studies-card-img" alt="">
+=======
+                      <img src="{{ asset('landingpage/images/Group108.svg') }}" class="services-card-img" alt="">
+>>>>>>> Stashed changes
                   </div>
                   <div class="card-desc-box d-flex align-items-center justify-content-around">
                     <div>
                       <h6 class="text-white pb-2 px-3">Know more about Body Treatment</h6>
+<<<<<<< Updated upstream
                       <button class="btn btn-white">Read More</button>
+=======
+                      <a href="/body">
+                      <button class="btn btn-white">Read More</button>
+                      </a>
+>>>>>>> Stashed changes
                     </div>
                   </div>
                 </div>
@@ -184,12 +240,22 @@
               <div class="card-body p-0">
                 <div class="bg-violet text-center card-contents">
                   <div class="card-image">
+<<<<<<< Updated upstream
                       <img src="{{ asset('landingpage/images/Group126.svg') }}" class="case-studies-card-img" alt="">
+=======
+                      <img src="{{ asset('landingpage/images/Group126.svg') }}" class="services-card-img" alt="">
+>>>>>>> Stashed changes
                   </div>
                   <div class="card-desc-box d-flex align-items-center justify-content-around">
                     <div>
                       <h6 class="text-white pb-2 px-3">Know more about Hair Treatment</h6>
+<<<<<<< Updated upstream
                       <button class="btn btn-white">Read More</button>
+=======
+                      <a href="/hair">
+                      <button class="btn btn-white">Read More</button>
+                      </a>
+>>>>>>> Stashed changes
                     </div>
                   </div>
                 </div>
@@ -205,12 +271,22 @@
               <div class="card-body p-0">
                 <div class="bg-success text-center card-contents">
                   <div class="card-image">
+<<<<<<< Updated upstream
                       <img src="{{ asset('landingpage/images/Group115.svg') }}" class="case-studies-card-img" alt="">
+=======
+                      <img src="{{ asset('landingpage/images/Group115.svg') }}" class="services-card-img" alt="">
+>>>>>>> Stashed changes
                   </div>
                   <div class="card-desc-box d-flex align-items-center justify-content-around">
                     <div>
                       <h6 class="text-white pb-2 px-3">Know more about Nail & Lash Treatment</h6>
+<<<<<<< Updated upstream
                       <button class="btn btn-white">Read More</button>
+=======
+                      <a href="/nail">
+                      <button class="btn btn-white">Read More</button>
+                      </a>
+>>>>>>> Stashed changes
                     </div>
                   </div>
                 </div>
@@ -226,12 +302,22 @@
               <div class="card-body p-0">
                 <div class="bg-primary text-center card-contents">
                   <div class="card-image">
+<<<<<<< Updated upstream
                     <img src="{{ asset('landingpage/images/Group95.svg') }}" class="case-studies-card-img" alt="">
+=======
+                    <img src="{{ asset('landingpage/images/Group95.svg') }}" class="services-card-img" alt="">
+>>>>>>> Stashed changes
                   </div>
                   <div class="card-desc-box d-flex align-items-center justify-content-around">
                     <div>
                       <h6 class="text-white pb-2 px-3">Know more about Package Treatment</h6>
+<<<<<<< Updated upstream
                       <button class="btn btn-white">Read More</button>
+=======
+                      <a href="/package">
+                      <button class="btn btn-white">Read More</button>
+                      </a>
+>>>>>>> Stashed changes
                     </div>
                   </div>
                 </div>
@@ -247,7 +333,11 @@
               <div class="card-body p-0">
                 <div class="bg-warning text-center card-contents">
                   <div class="card-image">
+<<<<<<< Updated upstream
                       <img src="{{ asset('landingpage/images/Group108.svg') }}" class="case-studies-card-img" alt="">
+=======
+                      <img src="{{ asset('landingpage/images/Group108.svg') }}" class="services-card-img" alt="">
+>>>>>>> Stashed changes
                   </div>
                   <div class="card-desc-box d-flex align-items-center justify-content-around">
                     <div>
@@ -268,7 +358,11 @@
               <div class="card-body p-0">
                 <div class="bg-violet text-center card-contents">
                   <div class="card-image">
+<<<<<<< Updated upstream
                       <img src="{{ asset('landingpage/images/Group126.svg') }}" class="case-studies-card-img" alt="">
+=======
+                      <img src="{{ asset('landingpage/images/Group126.svg') }}" class="services-card-img" alt="">
+>>>>>>> Stashed changes
                   </div>
                   <div class="card-desc-box d-flex align-items-center justify-content-around">
                     <div>
@@ -286,6 +380,7 @@
           </div>
         </div>
       </section>
+<<<<<<< Updated upstream
       <section class="case-studies" id="case-studies-section">
         <div class="row" style="justify-content:center">
           <div class="col-12 text-center pb-5">
@@ -445,21 +540,45 @@
         </div>
       </section>
       <section class="customer-feedback" id="feedback-section">
+=======
+      <section class="customer-feedback" id="feedback-section">
+        <div class="row" style="justify-content: space-evenly">
+            <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+            <div class="elfsight-app-dad6fff1-6abe-4e7d-8e9d-17aac4fcb070"></div>
+        </div>
+      </section>
+      <section class="customer-feedback" id="facilities-section">
+>>>>>>> Stashed changes
         <div class="row">
           <div class="col-12 text-center pb-5">
             <h2>Facilities</h2>
             <h6 class="section-subtitle text-muted m-0"></h6>
           </div>
+<<<<<<< Updated upstream
           <div class="owl-carousel owl-theme grid-margin">
               <div class="card customer-cards">
                 <div class="card-body">
                   <div class="text-center">
                     <img src="{{ asset('landingpage/images/face2.jpg') }}" width="89" height="89" alt="" class="img-fluid">
+=======
+          
+          <div class="owl-carousel owl-theme grid-margin">
+              @if(isset($facility))
+              @foreach($facility as $data)
+              @if($data->status==1)
+              <div class="card customer-cards">
+                <div class="card-body">
+                  <div class="text-center">
+                  @if($data->image)
+                    <img src="data:image/png;base64,{{$data->image}}" width="89" height="89" alt="" class="img-fluid" style="max-width: 200px;">
+                    @endif
+>>>>>>> Stashed changes
                     <p class="m-0 py-3 text-muted"></p>
                     <div class="content-divider m-auto"></div>
                     <h6 class="card-title pt-3">Tony Martinez</h6>
                     <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
                   </div>
+<<<<<<< Updated upstream
                 </div>
               </div>
               <div class="card customer-cards">
@@ -550,6 +669,13 @@
                   </div>
                 </div>
               </div>
+=======
+                </div> 
+              </div>
+              @endif
+              @endforeach
+              @endif
+>>>>>>> Stashed changes
           </div>
         </div>
       </section>
@@ -557,6 +683,7 @@
         <div class="grid-margin" >
 
         </div>
+<<<<<<< Updated upstream
       </section>
 
       <section class="contact-details" id="contact-details-section">
@@ -644,3 +771,7 @@
   <script src="{{ asset('landingpage/js/landingpage.js') }}"></script>
 </body>
 </html>
+=======
+      </section><!-- /.control-sidebar -->
+@endsection('content')
+>>>>>>> Stashed changes

@@ -36,13 +36,21 @@
                 <div class="col-md-2 float-sm-right my-2">
                   <a href="{{route('servicesfacial.all')}}"><button type="button" class="btn btn-sm btn-primary btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back to Package</button></a>
                 </div>
+<<<<<<< Updated upstream
                 <form method="POST" action="{{route('servicesfacial.update',$data->slug)}}" enctype="multipart/form-data">
+=======
+                <form method="POST" action="{{route('servicesfacial.update',$price_facial->slug)}}" enctype="multipart/form-data">
+>>>>>>> Stashed changes
                   @csrf()
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="name">Nama Layanan</label>
+<<<<<<< Updated upstream
                         <input type="text" class="form-control" name="nama_layanan" value="{{$data->name_layanan}}">
+=======
+                        <input type="text" class="form-control" name="nama_layanan" value="{{$price_facial->nama_layanan}}">
+>>>>>>> Stashed changes
                       </div>
                     </div>
                   </div>
@@ -50,7 +58,11 @@
                     <div class="col-md-12">
                      <div class="form-group">
                       <label for="name">Content</label>
+<<<<<<< Updated upstream
                       <textarea class="form-control" name="content">{{$data->content}}</textarea>
+=======
+                      <textarea class="form-control" name="content">{{$price_facial->content}}</textarea>
+>>>>>>> Stashed changes
                     </div>
                   </div>
                 </div>
@@ -58,7 +70,11 @@
                   <div class="col-md-4">
                     <div class="form-group">
                         <label for="name">Price</label>
+<<<<<<< Updated upstream
                         <input type="text" class="form-control" name="price" value="{{$data->price}}">
+=======
+                        <input type="text" class="form-control" name="harga" value="{{$price_facial->harga}}">
+>>>>>>> Stashed changes
                       </div>
                   </div>
                 </div>
@@ -66,7 +82,11 @@
                     <div class="col-md-4">
                       <div class="form-group">
                           <label for="name">Time</label>
+<<<<<<< Updated upstream
                           <input type="text" class="form-control" name="time" value="{{$data->waktu}}">
+=======
+                          <input type="text" class="form-control" name="waktu" value="{{$price_facial->waktu}}">
+>>>>>>> Stashed changes
                         </div>
                     </div>
                   </div>

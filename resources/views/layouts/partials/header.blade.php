@@ -3,7 +3,7 @@
   <title>{{env('APP_NAME','')}} @if(isset($page_title)) | {{$page_title}} @endif</title>
 
   <!-- Favicon icon -->
-  <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/dist/img/logo.png')}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('landingpage/images/favicon.ico') }}">
   
 
   <!-- Google Font: Source Sans Pro -->

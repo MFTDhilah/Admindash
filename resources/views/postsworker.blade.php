@@ -88,7 +88,11 @@
                       @else
                       <a href="{{route('postsworker.activate',$data->slug)}}" class="btn btn-warning btn-sm text-white">Activate</a>
                       @endif
+<<<<<<< Updated upstream
                       <a onclick="return deleteAction();" href="{{route('posts.delete',$data->slug)}}" class="btn btn-danger btn-sm text-white">Delete</a>
+=======
+                      <a onclick="return deleteAction();" href="{{route('postsworker.delete',$data->slug)}}" class="btn btn-danger btn-sm text-white">Delete</a>
+>>>>>>> Stashed changes
                     </td>
                   </tr>
                   @endforeach

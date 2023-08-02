@@ -8,6 +8,7 @@
         "@popperjs/core": "^2.10.2",
         "axios": "^0.25",
         "bootstrap": "^5.1.3",
+        "gulp": "^3.9.1",
         "laravel-vite-plugin": "^0.2.1",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
@@ -17,9 +18,19 @@
     },
     "dependencies": {
         "aos": "^3.0.0-beta.6",
+<<<<<<< Updated upstream
         "bootstrap": "^4.3.1",
         "mdi": "^2.2.43",
         "owl.carousel": "^2.3.4",
         "popper.js": "^1.15.0"
       }
+=======
+        "autoprefixer": "^10.4.14",
+        "bootstrap": "^4.3.1",
+        "browser-sync": "^2.29.3",
+        "mdi": "^2.2.43",
+        "owl.carousel": "^2.3.4",
+        "popper.js": "^1.15.0"
+    }
+>>>>>>> Stashed changes
 }

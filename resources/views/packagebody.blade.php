@@ -63,8 +63,13 @@
                   </tr>
                 </thead>
                 <tbody>
+<<<<<<< Updated upstream
                   @if(isset($price_package_200))
                   @foreach($price_package_200 as $data)
+=======
+                  @if(isset($price_body_package))
+                  @foreach($price_body_package as $data)
+>>>>>>> Stashed changes
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$data->nama_layanan}}</td>

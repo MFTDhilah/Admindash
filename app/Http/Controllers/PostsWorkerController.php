@@ -209,7 +209,11 @@ class PostsWorkerController extends Controller
 
         if($postsworker){
             $postsworker->update(['image' => NULL]);
+<<<<<<< Updated upstream
             return redirect()->route('postsworker.edit',$post->slug)->with('msg','Post Image Deleted');
+=======
+            return redirect()->route('postsworker.edit',$postsworker->slug)->with('msg','Post Image Deleted');
+>>>>>>> Stashed changes
         }
         else{
             return redirect()->back()->with('msg','Post not found');
@@ -228,7 +232,11 @@ class PostsWorkerController extends Controller
         $postsworker = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
 
         if($postsworker){
+<<<<<<< Updated upstream
             $postsworker->update(['status' => 9]);
+=======
+            $postsworker->delete();
+>>>>>>> Stashed changes
             return redirect()->back()->with('msg','Post succesully deleted');
         }
         else{

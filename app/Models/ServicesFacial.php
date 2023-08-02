@@ -7,7 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ServicesFacial extends Model
 {
+<<<<<<< Updated upstream
 	protected $table = 'services';
+=======
+	protected $table = 'price_facial';
+>>>>>>> Stashed changes
 
 	protected $fillable = ['nama_layanan', 'user_id', 'slug', 'content', 'waktu', 'harga' , 'status'];
 

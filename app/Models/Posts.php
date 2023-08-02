@@ -9,7 +9,7 @@ class Posts extends Model
 {
 	protected $table = 'posts';
 
-	protected $fillable = ['name', 'user_id', 'slug', 'content', 'status', 'image']; 
+	protected $fillable = ['name', 'user_id', 'slug', 'content', 'kategori', 'status', 'image']; 
 
 	public function getUser(){
 		$user = User::findorfail($this->user_id);

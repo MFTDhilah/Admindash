@@ -101,11 +101,19 @@ class ServicesFacialController extends Controller
      */
     public function edit($slug)
     {
+<<<<<<< Updated upstream
         $data = ServicesFacial::where('slug',$slug)->where('status','!=',9)->first();
 
         if($data){
             $page_title = $data->name." Edit";
             return view('edits.editservicesfacial',compact('data','page_title'));
+=======
+        $price_facial = ServicesFacial::where('slug',$slug)->where('status','!=',9)->first();
+
+        if($price_facial){
+            $page_title = $price_facial->name." Edit";
+            return view('edits.editservicesfacial',compact('price_facial','page_title'));
+>>>>>>> Stashed changes
         }
         else{
             return redirect()->back()->with('msg','Packages not found');
@@ -121,20 +129,31 @@ class ServicesFacialController extends Controller
      */
     public function update(Request $request, $slug)
     {
+<<<<<<< Updated upstream
         $thisservicefacial = ServicesFacial::where('slug',$slug)->where('status','!=',9)->first();
 
         if(!$thisservicefacial){
+=======
+        $price_facial = ServicesFacial::where('slug',$slug)->where('status','!=',9)->first();
+
+        if(!$price_facial){
+>>>>>>> Stashed changes
             return redirect()->back()->with('msg','Packages not found');
         }
         else{
         //Validation
         $validatearray = [
+<<<<<<< Updated upstream
             'name' => 'required'
+=======
+            'nama_layanan' => 'required'
+>>>>>>> Stashed changes
         ];
 
         $request->validate($validatearray);
 
         //Generate Slug
+<<<<<<< Updated upstream
         if($request->nama_layanan != $thisservicesfacial->nama_layanan){
            $slug = str()->slug($request->name."-".time());
         }
@@ -144,15 +163,34 @@ class ServicesFacialController extends Controller
 
         //Update
         $thisservicesfacial->update([
+=======
+        if($request->nama_layanan != $price_facial->nama_layanan){
+           $slug = str()->slug($request->name."-".time());
+        }
+        else{
+             $slug = $price_facial->slug;
+        }
+
+        //Update
+        $price_facial->update([
+>>>>>>> Stashed changes
             'nama_layanan' => $request->nama_layanan,
             'user_id' => Auth::user()->id,
             'slug' => $slug,
             'content' => $request->content,
+<<<<<<< Updated upstream
             'waktu' => $request -> waktu,
             'harga' => $request->harga
         ]);
 
         return redirect()->route('servicesfacial.edit',$thisservicesfacial->slug)->with('msg','Package updated');
+=======
+            'waktu' => $request ->waktu,
+            'harga' => $request->harga
+        ]);
+
+        return redirect()->route('servicesfacial.edit',$price_facial->slug)->with('msg','Package updated');
+>>>>>>> Stashed changes
 
         }
     }
@@ -171,7 +209,11 @@ class ServicesFacialController extends Controller
     }
 
     public function unpublish($slug){
+<<<<<<< Updated upstream
         $price_facial = PackageFacial::where('slug',$slug)->where('status','!=',9)->first();
+=======
+        $price_facial = ServicesFacial::where('slug',$slug)->where('status','!=',9)->first();
+>>>>>>> Stashed changes
 
         if($price_facial){
             $price_facial->update(['status' => 0]);
@@ -191,7 +233,11 @@ class ServicesFacialController extends Controller
      */
     public function destroy($slug)
     {
+<<<<<<< Updated upstream
         $price_facial = PackageFacial::where('slug',$slug)->where('status','!=',9)->first();
+=======
+        $price_facial = ServicesFacial::where('slug',$slug)->where('status','!=',9)->first();
+>>>>>>> Stashed changes
 
         if($price_facial){
             $price_facial->update(['status' => 9]);

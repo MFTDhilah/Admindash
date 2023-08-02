@@ -57,6 +57,10 @@
                     <th>Name</th>
                     <th>Image</th>
                     <th>Content</th>
+<<<<<<< Updated upstream
+=======
+                    <th>Category</th>
+>>>>>>> Stashed changes
                     <th>Status</th>
                     <th>Action</th>
                   </tr>
@@ -73,6 +77,7 @@
                       @endif
                     </td>
                     <td>{{$data->content}}</td>
+                    <td>{{$data->kategori}}</td>
                     <td>
                       @if($data->status == 1)
                       <a class="text-success">Published</a>

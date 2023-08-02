@@ -1,6 +1,6 @@
 <!-- Main Footer -->
 <footer class="main-footer">
-	<strong>Copyright &copy; {{date('Y')}} 
+	<strong>Copyright &copy; {{date('Y')}}
 		<a href="{{url('/')}}">
 			{{env('APP_NAME')}}
 		</a>.
@@ -167,7 +167,7 @@
     });
   })
 </script>
-<script>	
+<script>
    function deleteAction() {
     if(!confirm("Are You Sure to Delete"))
       event.preventDefault();
