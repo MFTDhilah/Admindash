@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\PostsWorker;
+use App\Models\Certifications;
 use Auth;
-class PostsWorkerController extends Controller
+class SertificationsController extends Controller
 {
 
     public function __construct()
@@ -22,11 +22,11 @@ class PostsWorkerController extends Controller
      */
     public function index()
     {
-        $page_title = "Posts Worker";
+        $page_title = "Sertifications";
 
-        $postsworker = PostsWorker::where('status','!=',9)->get();
+        $sertifications = Sertifications::where('status','!=',9)->get();
 
-        return view('postsworker',compact('page_title','postsworker'));
+        return view('licenses',compact('page_title','sertifications'));
     }
 
     /**
@@ -36,9 +36,9 @@ class PostsWorkerController extends Controller
      */
     public function create()
     {
-        $page_title = "Add Posts";
+        $page_title = "Add Sertifications";
 
-        return view('adds.addpostworker',compact('page_title'));
+        return view('adds.addsertifications',compact('page_title'));
     }
 
     /**
@@ -65,22 +65,22 @@ class PostsWorkerController extends Controller
         $slug = str()->slug($request->name."-".time());
 
         //Create Post
-        $postsworker = new PostsWorker;
-        $postsworker->name = $request->name;
-        $postsworker->user_id = Auth::user()->id;
-        $postsworker->slug = $slug;
-        $postsworker->content = $request->content;
-        $postsworker->status = 1;
+        $sertification = new Sertifications;
+        $sertification->name = $request->name;
+        $sertification->user_id = Auth::user()->id;
+        $sertification->slug = $slug;
+        $sertification->content = $request->content;
+        $sertification->status = 1;
 
         if($request->file('postimage')){
             $path = $request->file('postimage')->getRealPath();
             $image = file_get_contents($path);
             $postimage = base64_encode($image);
-            $postsworker->image = $postimage;
+            $sertification->image = $postimage;
         }
-        $postsworker->save();
+        $sertification->save();
 
-        return redirect()->route('postsworker.all')->with('msg','Succesully Added');
+        return redirect()->route('sertifications.all')->with('msg','Succesully Added');
     }
 
     /**
@@ -91,14 +91,14 @@ class PostsWorkerController extends Controller
      */
     public function show($slug)
     {
-        $data = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $data = Sertifications::where('slug',$slug)->where('status','!=',9)->first();
 
         if($data){
             $page_title = $data->name." View";
-            return view('details.viewpostworker',compact('data','page_title'));
+            return view('details.viewsertification',compact('data','page_title'));
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Sertification not found');
         }
     }
 
@@ -110,14 +110,14 @@ class PostsWorkerController extends Controller
      */
     public function edit($slug)
     {
-        $data = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $data = Sertifications::where('slug',$slug)->where('status','!=',9)->first();
 
         if($data){
             $page_title = $data->name." Edit";
-            return view('edits.editpostworker',compact('data','page_title'));
+            return view('edits.editsertification',compact('data','page_title'));
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Sertification not found');
         }
     }
 
@@ -130,10 +130,10 @@ class PostsWorkerController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        $thispostsworker = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $thissertification = Sertifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if(!$thispostsworker){
-            return redirect()->back()->with('msg','Post not found');
+        if(!$thissertification){
+            return redirect()->back()->with('msg','Sertification not found');
         }
         else{
         //Validation
@@ -149,11 +149,11 @@ class PostsWorkerController extends Controller
         $request->validate($validatearray);
 
         //Generate Slug
-        if($request->name != $thispostsworker->name){
+        if($request->name != $thissertification->name){
            $slug = str()->slug($request->name."-".time());
         }
         else{
-             $slug = $thispostsworker->slug;
+             $slug = $thissertification->slug;
         }
 
         //Image
@@ -163,11 +163,11 @@ class PostsWorkerController extends Controller
             $postimage = base64_encode($image);
         }
         else{
-            $postimage = $thispostsworker->image;
+            $postimage = $thissertification->image;
         }
 
         //Update
-        $thispostsworker->update([
+        $thissertification->update([
             'name' => $request->name,
             'user_id' => Auth::user()->id,
             'slug' => $slug,
@@ -175,44 +175,44 @@ class PostsWorkerController extends Controller
             'image' => $postimage
         ]);
 
-        return redirect()->route('postsworker.edit',$thispostsworker->slug)->with('msg','Post updated');
+        return redirect()->route('sertifications.edit',$thissertification->slug)->with('msg','Sertification updated');
 
         }
     }
 
     public function publish($slug){
-        $postsworker = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $sertification = Sertifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($postsworker){
-            $postsworker->update(['status' => 1]);
-            return redirect()->back()->with('msg','Post succesully activated');
+        if($sertification){
+            $sertification->update(['status' => 1]);
+            return redirect()->back()->with('msg','Sertification succesully activated');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Sertification not found');
         }
 
     }
 
     public function unpublish($slug){
-        $postsworker = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $sertification = Sertifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($postsworker){
-            $postsworker->update(['status' => 0]);
-            return redirect()->back()->with('msg','Post succesully deactivated');
+        if($sertification){
+            $sertification->update(['status' => 0]);
+            return redirect()->back()->with('msg','Sertification succesully deactivated');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Sertification not found');
         }
     }
     public function deleteimage($slug){
-        $postsworker = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $sertification = Sertifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($postsworker){
-            $postsworker->update(['image' => NULL]);
-            return redirect()->route('postsworker.edit',$postsworker->slug)->with('msg','Post Image Deleted');
+        if($sertification){
+            $sertification->update(['image' => NULL]);
+            return redirect()->route('sertifications.edit',$sertification->slug)->with('msg','Sertification Image Deleted');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Sertification not found');
         }
     }
 
@@ -225,14 +225,14 @@ class PostsWorkerController extends Controller
      */
     public function destroy($slug)
     {
-        $postsworker = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $sertification = Sertifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($postsworker){
-            $postsworker->delete();
-            return redirect()->back()->with('msg','Post succesully deleted');
+        if($sertification){
+            $sertification->update(['status' => 9]);
+            return redirect()->back()->with('msg','Sertification succesully deleted');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Sertification not found');
         }
     }
 }

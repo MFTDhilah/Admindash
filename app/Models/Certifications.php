@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ServicesFacial extends Model
+class Certifications extends Model
 {
-	protected $table = 'price_facial';
+	protected $table = 'certifications';
 
-	protected $fillable = ['nama_layanan', 'user_id', 'slug', 'content', 'waktu', 'harga' , 'status'];
+	protected $fillable = ['name', 'user_id', 'slug', 'content', 'kategori', 'status', 'image']; 
 
 	public function getUser(){
 		$user = User::findorfail($this->user_id);
@@ -18,6 +18,6 @@ class ServicesFacial extends Model
 		}
 		else{
 			return NULL;
-		}
-	}
+		}		
+	}   
 }

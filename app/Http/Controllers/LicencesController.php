@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\PostsWorker;
+use App\Models\Licences;
 use Auth;
-class PostsWorkerController extends Controller
+class LicencesController extends Controller
 {
 
     public function __construct()
@@ -22,11 +22,11 @@ class PostsWorkerController extends Controller
      */
     public function index()
     {
-        $page_title = "Posts Worker";
+        $page_title = "Licences";
 
-        $postsworker = PostsWorker::where('status','!=',9)->get();
+        $licences = Licences::where('status','!=',9)->get();
 
-        return view('postsworker',compact('page_title','postsworker'));
+        return view('licenses',compact('page_title','licences'));
     }
 
     /**
@@ -36,9 +36,9 @@ class PostsWorkerController extends Controller
      */
     public function create()
     {
-        $page_title = "Add Posts";
+        $page_title = "Add Licences";
 
-        return view('adds.addpostworker',compact('page_title'));
+        return view('adds.addlicences',compact('page_title'));
     }
 
     /**
@@ -65,22 +65,22 @@ class PostsWorkerController extends Controller
         $slug = str()->slug($request->name."-".time());
 
         //Create Post
-        $postsworker = new PostsWorker;
-        $postsworker->name = $request->name;
-        $postsworker->user_id = Auth::user()->id;
-        $postsworker->slug = $slug;
-        $postsworker->content = $request->content;
-        $postsworker->status = 1;
+        $licence = new Licences;
+        $licence->name = $request->name;
+        $licence->user_id = Auth::user()->id;
+        $licence->slug = $slug;
+        $licence->content = $request->content;
+        $licence->status = 1;
 
         if($request->file('postimage')){
             $path = $request->file('postimage')->getRealPath();
             $image = file_get_contents($path);
             $postimage = base64_encode($image);
-            $postsworker->image = $postimage;
+            $licence->image = $postimage;
         }
-        $postsworker->save();
+        $licence->save();
 
-        return redirect()->route('postsworker.all')->with('msg','Succesully Added');
+        return redirect()->route('licences.all')->with('msg','Succesully Added');
     }
 
     /**
@@ -91,14 +91,14 @@ class PostsWorkerController extends Controller
      */
     public function show($slug)
     {
-        $data = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $data = Licences::where('slug',$slug)->where('status','!=',9)->first();
 
         if($data){
             $page_title = $data->name." View";
-            return view('details.viewpostworker',compact('data','page_title'));
+            return view('details.viewlicence',compact('data','page_title'));
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
     }
 
@@ -110,14 +110,14 @@ class PostsWorkerController extends Controller
      */
     public function edit($slug)
     {
-        $data = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $data = Licences::where('slug',$slug)->where('status','!=',9)->first();
 
         if($data){
             $page_title = $data->name." Edit";
-            return view('edits.editpostworker',compact('data','page_title'));
+            return view('edits.editlicence',compact('data','page_title'));
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
     }
 
@@ -130,10 +130,10 @@ class PostsWorkerController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        $thispostsworker = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $thislicence = Licences::where('slug',$slug)->where('status','!=',9)->first();
 
-        if(!$thispostsworker){
-            return redirect()->back()->with('msg','Post not found');
+        if(!$thislicence){
+            return redirect()->back()->with('msg','Licence not found');
         }
         else{
         //Validation
@@ -149,11 +149,11 @@ class PostsWorkerController extends Controller
         $request->validate($validatearray);
 
         //Generate Slug
-        if($request->name != $thispostsworker->name){
+        if($request->name != $thislicence->name){
            $slug = str()->slug($request->name."-".time());
         }
         else{
-             $slug = $thispostsworker->slug;
+             $slug = $thislicence->slug;
         }
 
         //Image
@@ -163,11 +163,11 @@ class PostsWorkerController extends Controller
             $postimage = base64_encode($image);
         }
         else{
-            $postimage = $thispostsworker->image;
+            $postimage = $thislicence->image;
         }
 
         //Update
-        $thispostsworker->update([
+        $thislicence->update([
             'name' => $request->name,
             'user_id' => Auth::user()->id,
             'slug' => $slug,
@@ -175,44 +175,44 @@ class PostsWorkerController extends Controller
             'image' => $postimage
         ]);
 
-        return redirect()->route('postsworker.edit',$thispostsworker->slug)->with('msg','Post updated');
+        return redirect()->route('licences.edit',$thislicence->slug)->with('msg','Licence updated');
 
         }
     }
 
     public function publish($slug){
-        $postsworker = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $licence = Licences::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($postsworker){
-            $postsworker->update(['status' => 1]);
-            return redirect()->back()->with('msg','Post succesully activated');
+        if($licence){
+            $licence->update(['status' => 1]);
+            return redirect()->back()->with('msg','Licence succesully activated');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
 
     }
 
     public function unpublish($slug){
-        $postsworker = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $licence = Licences::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($postsworker){
-            $postsworker->update(['status' => 0]);
-            return redirect()->back()->with('msg','Post succesully deactivated');
+        if($licence){
+            $licence->update(['status' => 0]);
+            return redirect()->back()->with('msg','Licence succesully deactivated');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
     }
     public function deleteimage($slug){
-        $postsworker = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $licence = Licences::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($postsworker){
-            $postsworker->update(['image' => NULL]);
-            return redirect()->route('postsworker.edit',$postsworker->slug)->with('msg','Post Image Deleted');
+        if($licence){
+            $licence->update(['image' => NULL]);
+            return redirect()->route('licences.edit',$licence->slug)->with('msg','Licence Image Deleted');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
     }
 
@@ -225,14 +225,14 @@ class PostsWorkerController extends Controller
      */
     public function destroy($slug)
     {
-        $postsworker = PostsWorker::where('slug',$slug)->where('status','!=',9)->first();
+        $licence = Licences::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($postsworker){
-            $postsworker->delete();
-            return redirect()->back()->with('msg','Post succesully deleted');
+        if($licence){
+            $licence->update(['status' => 9]);
+            return redirect()->back()->with('msg','Licence succesully deleted');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
     }
 }

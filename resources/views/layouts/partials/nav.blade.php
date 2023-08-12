@@ -36,11 +36,7 @@
       </a>
 
       <!-- Sidebar -->
-<<<<<<< Updated upstream
-      <div class="sidebar">
-=======
       <div class="sidebar fixed">
->>>>>>> Stashed changes
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -55,11 +51,7 @@
             </a>
           </li>
           <li class="nav-item">
-<<<<<<< Updated upstream
-            <a href="{{route('posts.all')}}" class="nav-link">
-=======
             <a href="#" class="nav-link">
->>>>>>> Stashed changes
               <i class="nav-icon fas fa-play" aria-hidden="true"></i>
               <p>
                 Media
@@ -84,19 +76,13 @@
                     </a>
                 </li>
                 <li class="nav-item">
-<<<<<<< Updated upstream
-                    <a href="{{route('posts.all')}}" class="nav-link">
-=======
                     <a href="{{route('reviews.all')}}" class="nav-link">
->>>>>>> Stashed changes
                         <i class="nav-icon fas fa-th" aria-hidden="true"></i>
                         <p>
                             Review
                         </p>
                     </a>
                 </li>
-<<<<<<< Updated upstream
-=======
                 <li class="nav-item">
                     <a href="{{route('facility.all')}}" class="nav-link">
                         <i class="nav-icon fas fa-th" aria-hidden="true"></i>
@@ -105,7 +91,6 @@
                         </p>
                     </a>
                 </li>
->>>>>>> Stashed changes
             </ul>
           </li>
           <li class="nav-item">

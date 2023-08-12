@@ -49,10 +49,10 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="\#feedback-section">Reviews</a>
+            <a class="nav-link" href="#feedback-section">Reviews</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="\#facilities-section">Facilities</a>
+            <a class="nav-link" href="#facilities-section">Facilities</a>
           </li>
           <li class="nav-item btn-contact-us pl-4 pl-lg-0">
             <a href="https://api.whatsapp.com/send?phone=628115988858&fbclid=IwAR0qxlJod4tMMzq7tzN0xJkhrB6oAfWTPtVl0rH37dOzvUgEhr6Ohe0zSS0">

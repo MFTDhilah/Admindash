@@ -205,14 +205,14 @@
           </div>
         </div>
       </section>
-
+  
       <section class="customer-feedback" id="feedback-section">
         <div class="row">
           <div class="col-12 text-center pb-5">
             <h2>Business Licence</h2>
             <h6 class="section-subtitle text-muted m-0"></h6>
           </div>
-
+          
           <div class="owl-carousel owl-theme grid-margin">
               @if(isset($facility))
               @foreach($facility as $data)
@@ -228,7 +228,7 @@
                     <h6 class="card-title pt-3">Tony Martinez</h6>
                     <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
                   </div>
-                </div>
+                </div> 
               </div>
               @endif
               @endforeach
@@ -240,9 +240,7 @@
         <div class="grid-margin" >
 
         </div>
-      </section>
-
-      <section class="customer-feedback" id="feedback-section">
+        <section class="customer-feedback" id="feedback-section">
         <div class="row">
           <div class="col-12 text-center pb-5">
             <br>

@@ -29,47 +29,47 @@
           <div class="card">
             <!-- /.card-header -->
             <div class="card-body">
-              <div class="card-body">
+              <div class="card-body">                    
                 @if(session('msg'))
                 <div class="alert alert-info alert-sm alert-dismissible">{{session('msg')}}</div>
-                @endif
+                @endif    
                 <div class="col-md-2 float-sm-right my-2">
-                  <a href="{{route('servicesfacial.all')}}"><button type="button" class="btn btn-sm btn-primary btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back to Package</button></a>
-                </div>
-                <form method="POST" action="{{route('servicesfacial.update',$price_facial->slug)}}" enctype="multipart/form-data">
-                  @csrf()
+                  <a href="{{route('certification.all')}}"><button type="button" class="btn btn-sm btn-primary btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back to Facilities</button></a>
+                </div> 
+                <form method="POST" action="{{route('certification.update',$data->slug)}}" enctype="multipart/form-data">
+                  @csrf()                   
                   <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label for="name">Nama Layanan</label>
-                        <input type="text" class="form-control" name="nama_layanan" value="{{$price_facial->nama_layanan}}">
+                        <label for="name">Post Name</label>
+                        <input type="text" class="form-control" name="name" value="{{$data->name}}">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-12">
                      <div class="form-group">
-                      <label for="name">Content</label>
-                      <textarea class="form-control" name="content">{{$price_facial->content}}</textarea>
+                      <label for="name">Post Content</label>
+                      <textarea class="form-control" name="content">{{$data->content}}</textarea>
                     </div>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row">                      
                   <div class="col-md-4">
                     <div class="form-group">
-                        <label for="name">Price</label>
-                        <input type="text" class="form-control" name="harga" value="{{$price_facial->harga}}">
-                      </div>
-                  </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                      <div class="form-group">
-                          <label for="name">Time</label>
-                          <input type="text" class="form-control" name="waktu" value="{{$price_facial->waktu}}">
-                        </div>
+                      <label for="name">Post Image</label>
+                      <input type="file" class="form-control" name="postimage">
                     </div>
                   </div>
+                  @if($data->image)
+                  <div class="col-md-8">
+                    <div class="img-wrap"  style="max-width:210px">
+                      <a onclick="return deleteAction();" href="{{route('certification.deletepostimage',$data->slug)}}"><span class="close deletelogos">&times;</span></a>
+                      <img src="data:image/png;base64,{{$data->image}}" class="img-fluid" data-id="{{$data->slug}}" style="max-width:400px"><br>
+                    </div>
+                  </div>
+                  @endif
+                </div>                    
                 <!-- /.card-body -->
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Submit</button>
