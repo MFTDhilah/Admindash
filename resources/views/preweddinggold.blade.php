@@ -63,8 +63,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @if(isset($price_package_100))
-                  @foreach($price_package_100 as $data)
+                  @if(isset($price_prewedding_gold))
+                  @foreach($price_prewedding_gold as $data)
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$data->nama_layanan}}</td>

@@ -9,7 +9,7 @@ class ServicesHair extends Model
 {
 	protected $table = 'price_hair';
 
-	protected $fillable = ['nama_layanan', 'user_id', 'slug', 'content', 'waktu', 'harga' , 'status'];
+	protected $fillable = ['nama_layanan', 'user_id', 'slug', 'content', 'waktu', 'harga', 'status'];
 
 	public function getUser(){
 		$user = User::findorfail($this->user_id);

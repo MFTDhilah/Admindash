@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Certifications extends Model
 {
-	protected $table = 'certifications';
+	protected $table = 'sertifikat';
 
 	protected $fillable = ['name', 'user_id', 'slug', 'content', 'kategori', 'status', 'image']; 
 

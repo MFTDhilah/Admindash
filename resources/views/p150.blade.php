@@ -30,7 +30,7 @@
             @foreach($p150 as $data)
             @if($data->status==1)
             <div class="col-md-4 pt-4">
-              <div class="price-card featured" style="max-height: 465px;">
+              <div class="price-card featured" style="max-height: 365px;min-height: 365px;">
                 <h2>{{$data->nama_layanan}}</h2>
                 <p>{{$data->content}}</p>
                 <p class="price"><span>{{$data->harga}}</span>/{{$data->waktu}}</p>
@@ -44,7 +44,11 @@
       </section>
       <section class="customer-feedback" id="feedback-section">
         <div class="row">
-          <div class="col-12 text-center pb-5">
+          <div class="col-12 text-left pb-5">
+            <br>
+            <p>*Note :
+            *Optional berarti customer harus memilih salah satu perawatan Perawatan paket tidak bisa diganti, di luar dari paket terhitung harga satuan
+            </p>
             <br>
             <br>
           </div>

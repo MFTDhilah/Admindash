@@ -130,9 +130,9 @@ class PostsController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        $thispost = Posts::where('slug',$slug)->where('status','!=',9)->first();
+        $thisposts = Posts::where('slug',$slug)->where('status','!=',9)->first();
 
-        if(!$thispost){
+        if(!$thisposts){
             return redirect()->back()->with('msg','Post not found');
         }
         else{
@@ -149,11 +149,11 @@ class PostsController extends Controller
         $request->validate($validatearray);
 
         //Generate Slug
-        if($request->name != $thispost->name){
+        if($request->name != $thisposts->name){
            $slug = str()->slug($request->name."-".time());
         }
         else{
-             $slug = $thispost->slug;
+             $slug = $thisposts->slug;
         }
 
         //Image
@@ -163,11 +163,11 @@ class PostsController extends Controller
             $postimage = base64_encode($image);
         }
         else{
-            $postimage = $thispost->image;
+            $postimage = $thisposts->image;
         }
 
         //Update
-        $thispost->update([
+        $thisposts->update([
             'name' => $request->name,
             'user_id' => Auth::user()->id,
             'slug' => $slug,
@@ -175,7 +175,7 @@ class PostsController extends Controller
             'image' => $postimage
         ]);
 
-        return redirect()->route('posts.edit',$thispost->slug)->with('msg','Post updated');
+        return redirect()->route('posts.edit',$thisposts->slug)->with('msg','Post updated');
 
         }
     }

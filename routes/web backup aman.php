@@ -87,7 +87,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function (){
 	Route::post('/servicesfacial/update/{slug}', 'ServicesFacialController@update')->name('servicesfacial.update');
 	Route::get('/servicesfacial/activate/{slug}', 'ServicesFacialController@publish')->name('servicesfacial.activate');
 	Route::get('/servicesfacial/deactivate/{slug}', 'ServicesFacialController@unpublish')->name('servicesfacial.deactivate');
-	Route::get('/servicesbody/deletepostimage/{slug}', 'servicesbodyController@deleteimage')->name('servicesbody.deletepostimage');
+	Route::get('/servicesfacial/deletepostimage/{slug}', 'ServicesFacialController@deleteimage')->name('servicesfacial.deletepostimage');
 	Route::get('/servicesfacial/delete/{slug}', 'ServicesFacialController@destroy')->name('servicesfacial.delete');
 
 });
@@ -102,7 +102,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function (){
 	Route::post('/serviceshair/update/{slug}', 'ServicesHairController@update')->name('serviceshair.update');
 	Route::get('/serviceshair/activate/{slug}', 'ServicesHairController@publish')->name('serviceshair.activate');
 	Route::get('/serviceshair/deactivate/{slug}', 'ServicesHairController@unpublish')->name('serviceshair.deactivate');
-	Route::get('/servicesbody/deletepostimage/{slug}', 'servicesbodyController@deleteimage')->name('servicesbody.deletepostimage');
+	Route::get('/serviceshair/deletepostimage/{slug}', 'ServicesHairController@deleteimage')->name('serviceshair.deletepostimage');
 	Route::get('/serviceshair/delete/{slug}', 'ServicesHairController@destroy')->name('serviceshair.delete');
 
 });
@@ -117,7 +117,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function (){
 	Route::post('/servicesnail/update/{slug}', 'ServicesNailController@update')->name('servicesnail.update');
 	Route::get('/servicesnail/activate/{slug}', 'ServicesNailController@publish')->name('servicesnail.activate');
 	Route::get('/servicesnail/deactivate/{slug}', 'ServicesNailController@unpublish')->name('servicesnail.deactivate');
-	Route::get('/servicesbody/deletepostimage/{slug}', 'servicesbodyController@deleteimage')->name('servicesbody.deletepostimage');
+	Route::get('/servicesbnail/deletepostimage/{slug}', 'ServicesNailController@deleteimage')->name('servicesnail.deletepostimage');
 	Route::get('/servicesnail/delete/{slug}', 'ServicesNailController@destroy')->name('servicesnail.delete');
 
 });
@@ -132,7 +132,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function (){
 	Route::post('/packagebody/update/{slug}', 'PackageBodyController@update')->name('packagebody.update');
 	Route::get('/packagebody/activate/{slug}', 'PackageBodyController@publish')->name('packagebody.activate');
 	Route::get('/packagebody/deactivate/{slug}', 'PackageBodyController@unpublish')->name('packagebody.deactivate');
-	Route::get('/servicesbody/deletepostimage/{slug}', 'servicesbodyController@deleteimage')->name('servicesbody.deletepostimage');
+	Route::get('/packagebody/deletepostimage/{slug}', 'PackageBodyController@deleteimage')->name('packagebody.deletepostimage');
 	Route::get('/packagebody/delete/{slug}', 'PackageBodyController@destroy')->name('packagebody.delete');
 
 });
@@ -147,7 +147,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function (){
 	Route::post('/package100/update/{slug}', 'Package100Controller@update')->name('package100.update');
 	Route::get('/package100/activate/{slug}', 'Package100Controller@publish')->name('package100.activate');
 	Route::get('/package100/deactivate/{slug}', 'Package100Controller@unpublish')->name('package100.deactivate');
-	Route::get('/servicesbody/deletepostimage/{slug}', 'servicesbodyController@deleteimage')->name('servicesbody.deletepostimage');
+	Route::get('/package100/deletepostimage/{slug}', 'Package100Controller@deleteimage')->name('package100.deletepostimage');
 	Route::get('/package100/delete/{slug}', 'Package100Controller@destroy')->name('package100.delete');
 
 });
@@ -162,7 +162,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function (){
 	Route::post('/package150/update/{slug}', 'Package150Controller@update')->name('package150.update');
 	Route::get('/package150/activate/{slug}', 'Package150Controller@publish')->name('package150.activate');
 	Route::get('/package150/deactivate/{slug}', 'Package150Controller@unpublish')->name('package150.deactivate');
-	Route::get('/servicesbody/deletepostimage/{slug}', 'servicesbodyController@deleteimage')->name('servicesbody.deletepostimage');
+	Route::get('/package150/deletepostimage/{slug}', 'Package150Controller@deleteimage')->name('package150.deletepostimage');
 	Route::get('/package150/delete/{slug}', 'Package150Controller@destroy')->name('package150.delete');
 
 });
@@ -177,7 +177,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function (){
 	Route::post('/package200/update/{slug}', 'Package200Controller@update')->name('package200.update');
 	Route::get('/package200/activate/{slug}', 'Package200Controller@publish')->name('package200.activate');
 	Route::get('/package200/deactivate/{slug}', 'Package200Controller@unpublish')->name('package200.deactivate');
-	Route::get('/servicesbody/deletepostimage/{slug}', 'servicesbodyController@deleteimage')->name('servicesbody.deletepostimage');
+	Route::get('/package200/deletepostimage/{slug}', 'Package200Controller@deleteimage')->name('package200.deletepostimage');
 	Route::get('/package200/delete/{slug}', 'Package200Controller@destroy')->name('package200.delete');
 
 });
@@ -192,7 +192,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function (){
 	Route::post('/preweddingbronze/update/{slug}', 'PreweddingBronzeController@update')->name('preweddingbronze.update');
 	Route::get('/preweddingbronze/activate/{slug}', 'PreweddingBronzeController@publish')->name('preweddingbronze.activate');
 	Route::get('/preweddingbronze/deactivate/{slug}', 'PreweddingBronzeController@unpublish')->name('preweddingbronze.deactivate');
-	Route::get('/servicesbody/deletepostimage/{slug}', 'servicesbodyController@deleteimage')->name('servicesbody.deletepostimage');
+	Route::get('/preweddingbronze/deletepostimage/{slug}', 'PreweddingBronzeController@deleteimage')->name('preweddingbronze.deletepostimage');
 	Route::get('/preweddingbronze/delete/{slug}', 'PreweddingBronzeController@destroy')->name('preweddingbronze.delete');
 
 });
@@ -207,7 +207,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function (){
 	Route::post('/preweddinggold/update/{slug}', 'PreweddingGoldController@update')->name('preweddinggold.update');
 	Route::get('/preweddinggold/activate/{slug}', 'PreweddingGoldController@publish')->name('preweddinggold.activate');
 	Route::get('/preweddinggold/deactivate/{slug}', 'PreweddingGoldController@unpublish')->name('preweddinggold.deactivate');
-	Route::get('/servicesbody/deletepostimage/{slug}', 'servicesbodyController@deleteimage')->name('servicesbody.deletepostimage');
+	Route::get('/preweddinggold/deletepostimage/{slug}', 'PreweddingGoldController@deleteimage')->name('preweddinggold.deletepostimage');
 	Route::get('/preweddinggold/delete/{slug}', 'PreweddingGoldController@destroy')->name('preweddinggold.delete');
 
 });
@@ -223,7 +223,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function (){
 	Route::post('/preweddingsilver/update/{slug}', 'PreweddingSilverController@update')->name('preweddingsilver.update');
 	Route::get('/preweddingsilver/activate/{slug}', 'PreweddingSilverController@publish')->name('preweddingsilver.activate');
 	Route::get('/preweddingsilver/deactivate/{slug}', 'PreweddingSilverController@unpublish')->name('preweddingsilver.deactivate');
-	Route::get('/servicesbody/deletepostimage/{slug}', 'servicesbodyController@deleteimage')->name('servicesbody.deletepostimage');
+	Route::get('/preweddingsilver/deletepostimage/{slug}', 'PreweddingSilverController@deleteimage')->name('preweddingsilver.deletepostimage');
 	Route::get('/preweddingsilver/delete/{slug}', 'PreweddingSilverController@destroy')->name('preweddingsilver.delete');
 
 });

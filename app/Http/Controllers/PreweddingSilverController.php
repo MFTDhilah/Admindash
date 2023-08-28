@@ -22,7 +22,7 @@ class PreweddingSilverController extends Controller
      */
     public function index()
     {
-        $page_title = "Prewedding Gold";
+        $page_title = "Prewedding Silver";
 
         $price_prewedding_silver = PreweddingSilver::where('status','!=',9)->get();
 

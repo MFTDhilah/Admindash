@@ -129,7 +129,7 @@ class Package100Controller extends Controller
         else{
         //Validation
         $validatearray = [
-            'name' => 'required'
+            'nama_layanan' => 'required'
         ];
 
         $request->validate($validatearray);

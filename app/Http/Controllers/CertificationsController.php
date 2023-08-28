@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Facilities;
+use App\Models\Certifications;
 use Auth;
-class FacilityController extends Controller
+class CertificationsController extends Controller
 {
 
     public function __construct()
@@ -22,11 +22,11 @@ class FacilityController extends Controller
      */
     public function index()
     {
-        $page_title = "Facilities";
+        $page_title = "Certifications";
 
-        $facility = Facilities::where('status','!=',9)->get();
+        $certifications = Certifications::where('status','!=',9)->get();
 
-        return view('facility',compact('page_title','facility'));
+        return view('certifications',compact('page_title','certifications'));
     }
 
     /**
@@ -36,9 +36,9 @@ class FacilityController extends Controller
      */
     public function create()
     {
-        $page_title = "Add Facilities";
+        $page_title = "Add Certifications";
 
-        return view('adds.addfacility',compact('page_title'));
+        return view('adds.addcertifications',compact('page_title'));
     }
 
     /**
@@ -65,22 +65,22 @@ class FacilityController extends Controller
         $slug = str()->slug($request->name."-".time());
 
         //Create Post
-        $facility = new Facilities;
-        $facility->name = $request->name;
-        $facility->user_id = Auth::user()->id;
-        $facility->slug = $slug;
-        $facility->content = $request->content;
-        $facility->status = 1;
+        $licence = new Certifications;
+        $licence->name = $request->name;
+        $licence->user_id = Auth::user()->id;
+        $licence->slug = $slug;
+        $licence->content = $request->content;
+        $licence->status = 1;
 
         if($request->file('postimage')){
             $path = $request->file('postimage')->getRealPath();
             $image = file_get_contents($path);
             $postimage = base64_encode($image);
-            $facility->image = $postimage;
+            $licence->image = $postimage;
         }
-        $facility->save();
+        $licence->save();
 
-        return redirect()->route('facility.all')->with('msg','Succesully Added');
+        return redirect()->route('certifications.all')->with('msg','Succesully Added');
     }
 
     /**
@@ -91,14 +91,14 @@ class FacilityController extends Controller
      */
     public function show($slug)
     {
-        $data = Facilities::where('slug',$slug)->where('status','!=',9)->first();
+        $data = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
         if($data){
             $page_title = $data->name." View";
-            return view('details.viewfacility',compact('data','page_title'));
+            return view('details.viewlicence',compact('data','page_title'));
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
     }
 
@@ -110,14 +110,14 @@ class FacilityController extends Controller
      */
     public function edit($slug)
     {
-        $data = Facilities::where('slug',$slug)->where('status','!=',9)->first();
+        $data = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
         if($data){
             $page_title = $data->name." Edit";
-            return view('edits.editfacility',compact('data','page_title'));
+            return view('edits.editlicence',compact('data','page_title'));
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
     }
 
@@ -130,10 +130,10 @@ class FacilityController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        $thisfacility = Facilities::where('slug',$slug)->where('status','!=',9)->first();
+        $thislicence = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if(!$thisfacility){
-            return redirect()->back()->with('msg','Post not found');
+        if(!$thislicence){
+            return redirect()->back()->with('msg','Licence not found');
         }
         else{
         //Validation
@@ -143,17 +143,17 @@ class FacilityController extends Controller
 
         if ($request->postimage) {
         //Append validation
-            $validatearray['postimage'] = 'image|mimes:jpeg,png,jpg,gif,svg|max:4096';
+            $validatearray['postimage'] = 'image|mimes:jpeg,png,jpg,gif,svg|max:2048';
         }
 
         $request->validate($validatearray);
 
         //Generate Slug
-        if($request->name != $thisfacility->name){
+        if($request->name != $thislicence->name){
            $slug = str()->slug($request->name."-".time());
         }
         else{
-             $slug = $thisfacility->slug;
+             $slug = $thislicence->slug;
         }
 
         //Image
@@ -163,11 +163,11 @@ class FacilityController extends Controller
             $postimage = base64_encode($image);
         }
         else{
-            $postimage = $thisfacility->image;
+            $postimage = $thislicence->image;
         }
 
         //Update
-        $thisfacility->update([
+        $thislicence->update([
             'name' => $request->name,
             'user_id' => Auth::user()->id,
             'slug' => $slug,
@@ -175,44 +175,44 @@ class FacilityController extends Controller
             'image' => $postimage
         ]);
 
-        return redirect()->route('facility.edit',$thisfacility->slug)->with('msg','Post updated');
+        return redirect()->route('certifications.edit',$thislicence->slug)->with('msg','Licence updated');
 
         }
     }
 
     public function publish($slug){
-        $facility = Facilities::where('slug',$slug)->where('status','!=',9)->first();
+        $licence = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($facility){
-            $facility->update(['status' => 1]);
-            return redirect()->back()->with('msg','Post succesully activated');
+        if($licence){
+            $licence->update(['status' => 1]);
+            return redirect()->back()->with('msg','Licence succesully activated');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
 
     }
 
     public function unpublish($slug){
-        $facility = Facilities::where('slug',$slug)->where('status','!=',9)->first();
+        $licence = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($facility){
-            $facility->update(['status' => 0]);
-            return redirect()->back()->with('msg','Post succesully deactivated');
+        if($licence){
+            $licence->update(['status' => 0]);
+            return redirect()->back()->with('msg','Licence succesully deactivated');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
     }
     public function deleteimage($slug){
-        $facility = Facilities::where('slug',$slug)->where('status','!=',9)->first();
+        $licence = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($facility){
-            $facility->update(['image' => NULL]);
-            return redirect()->route('facility.edit',$facility->slug)->with('msg','Post Image Deleted');
+        if($licence){
+            $licence->update(['image' => NULL]);
+            return redirect()->route('certifications.edit',$licence->slug)->with('msg','Licence Image Deleted');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
     }
 
@@ -225,14 +225,14 @@ class FacilityController extends Controller
      */
     public function destroy($slug)
     {
-        $facility = Facilities::where('slug',$slug)->where('status','!=',9)->first();
+        $licence = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($facility){
-            $facility->delete();
-            return redirect()->back()->with('msg','Post succesully deleted');
+        if($licence){
+            $licence->update(['status' => 9]);
+            return redirect()->back()->with('msg','Licence succesully deleted');
         }
         else{
-            return redirect()->back()->with('msg','Post not found');
+            return redirect()->back()->with('msg','Licence not found');
         }
     }
 }

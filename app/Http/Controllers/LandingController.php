@@ -6,6 +6,8 @@ use App\Models\Facilities;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 
+use App\Models\Certifications;
+use App\Models\Licences;
 use App\Models\PostsWorker;
 use App\Models\Posts;
 use App\Models\ServicesBody;
@@ -42,8 +44,10 @@ class LandingController extends BaseController
         $postsworker = PostsWorker::where('status','!=',9)->get();
         $posts = Posts::where('status','!=',9)->get();
         $facility = Facilities::where('status','!=',9)->get();
+        $certification = Certifications::where('status','!=',9)->get();
+        $license = Licences::where('status','!=',9)->get();
 
-        return view('about',compact('postsworker','posts','facility') );
+        return view('about',compact('postsworker','posts','facility', 'certification', 'license') );
     }
     public function facial()
     {

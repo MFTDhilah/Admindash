@@ -241,7 +241,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function (){
 	Route::post('/package150/update/{slug}', 'Package150Controller@update')->name('package150.update');
 	Route::get('/package150/activate/{slug}', 'Package150Controller@publish')->name('package150.activate');
 	Route::get('/package150/deactivate/{slug}', 'Package150Controller@unpublish')->name('package150.deactivate');
-	Route::get('/servicesbody/deletepostimage/{slug}', 'servicesbodyController@deleteimage')->name('servicesbody.deletepostimage');
+	Route::get('/package150/deletepostimage/{slug}', 'Package150Controller@deleteimage')->name('package150.deletepostimage');
 	Route::get('/package150/delete/{slug}', 'Package150Controller@destroy')->name('package150.delete');
 
 });

@@ -63,9 +63,9 @@
                   </div>
                   @if($data->image)
                   <div class="col-md-8">
-                    <div class="img-wrap"  style="max-width:210px">
+                    <div class="img-wrap"  style="">
                       <a onclick="return deleteAction();" href="{{route('facility.deletepostimage',$data->slug)}}"><span class="close deletelogos">&times;</span></a>
-                      <img src="data:image/png;base64,{{$data->image}}" class="img-fluid" data-id="{{$data->slug}}" style="max-width:400px"><br>
+                      <img src="data:image/png;base64,{{$data->image}}" class="img-fluid" data-id="{{$data->slug}}" style=""><br>
                     </div>
                   </div>
                   @endif

@@ -22,9 +22,8 @@
                   <div class="card-body">
                     <div class="text-center">
                       
-                      <img src="data:image/png;base64,{{$data->image}}" width="89" height="89" alt="" class="img-fluid" style="height: 250px;">
+                      <img src="data:image/png;base64,{{$data->image}}" width="100%" height="100%" alt="" class="img-fluid" style="height: 250px;">
                       <p class="m-0 py-3 text-muted">{{$data->content}}</p>
-                      <button class="btn btn-info">Readmore</button>
                     </div>
                   </div>
                 </div>
@@ -228,8 +227,8 @@
                     @endif
                     <p class="m-0 py-3 text-muted"></p>
                     <div class="content-divider m-auto"></div>
-                    <h6 class="card-title pt-3">Tony Martinez</h6>
-                    <h6 class="customer-designation text-muted m-0">Marketing Manager</h6>
+                    <h6 class="card-title pt-3">{{$data->name}}</h6>
+                    <h6 class="customer-designation text-muted m-0">{{$data->content}}</h6>
                   </div>
                 </div> 
               </div>

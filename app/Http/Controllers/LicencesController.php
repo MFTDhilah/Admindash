@@ -22,11 +22,11 @@ class LicencesController extends Controller
      */
     public function index()
     {
-        $page_title = "Licences";
+        $page_title = "Licenses";
 
         $licences = Licences::where('status','!=',9)->get();
 
-        return view('licenses',compact('page_title','licences'));
+        return view('licences',compact('page_title','licences'));
     }
 
     /**
@@ -95,7 +95,7 @@ class LicencesController extends Controller
 
         if($data){
             $page_title = $data->name." View";
-            return view('details.viewlicence',compact('data','page_title'));
+            return view('details.viewlicences',compact('data','page_title'));
         }
         else{
             return redirect()->back()->with('msg','Licence not found');
@@ -114,7 +114,7 @@ class LicencesController extends Controller
 
         if($data){
             $page_title = $data->name." Edit";
-            return view('edits.editlicence',compact('data','page_title'));
+            return view('edits.editlicences',compact('data','page_title'));
         }
         else{
             return redirect()->back()->with('msg','Licence not found');

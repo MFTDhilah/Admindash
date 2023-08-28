@@ -108,7 +108,7 @@ class Package150Controller extends Controller
             return view('edits.editpackage150',compact('data','page_title'));
         }
         else{
-            return redirect()->back()->with('msg','Package not found');
+            return redirect()->back()->with('msg','Packages not found');
         }
     }
 
@@ -129,7 +129,7 @@ class Package150Controller extends Controller
         else{
         //Validation
         $validatearray = [
-            'name' => 'required'
+            'nama_layanan' => 'required'
         ];
 
         $request->validate($validatearray);

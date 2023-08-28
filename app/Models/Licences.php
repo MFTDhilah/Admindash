@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Licences extends Model
 {
-	protected $table = 'licences';
+	protected $table = 'lisensi';
 
 	protected $fillable = ['name', 'user_id', 'slug', 'content', 'kategori', 'status', 'image']; 
 

@@ -26,7 +26,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6">
-            <h1 class="m-0">Licences</h1>
+            <h1 class="m-0">Certifications</h1>
           </div><!-- /.col -->
         <div class="col-12">
           @if ($errors->any())
@@ -48,7 +48,7 @@
                 <a href="{{url()->previous()}}"><button type="button" class="btn btn-sm btn-primary btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back</button></a>
               </div>
               <div class="col-md-2 pull-right my-2">
-                <a href="{{route('licence.add')}}"><button type="button" class="btn btn-sm btn-outline-primary btn-block"><i class="fa fa-add"></i> Add</button></a>
+                <a href="{{route('certifications.add')}}"><button type="button" class="btn btn-sm btn-outline-primary btn-block"><i class="fa fa-add"></i> Add</button></a>
               </div>
               <table class="table table-bordered table-hover">
                 <thead>
@@ -62,8 +62,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @if(isset($licences))
-                  @foreach($licences as $data)
+                  @if(isset($certifications))
+                  @foreach($certifications as $data)
                   <tr>
                     <td>{{$loop->iteration}}</td>
                     <td>{{$data->name}}</td>
@@ -81,14 +81,14 @@
                       @endif
                     </td>
                     <td>
-                      <a href="{{route('licence.view',$data->slug)}}" class="btn btn-success btn-sm text-white">View</a>
-                      <a href="{{route('licence.edit',$data->slug)}}" class="btn btn-primary btn-sm text-white">Edit</a>
+                      <a href="{{route('certifications.view',$data->slug)}}" class="btn btn-success btn-sm text-white">View</a>
+                      <a href="{{route('certifications.edit',$data->slug)}}" class="btn btn-primary btn-sm text-white">Edit</a>
                       @if($data->status == 1)
-                      <a href="{{route('licence.deactivate',$data->slug)}}" class="btn btn-secondary btn-sm text-white">Deactivate</a>
+                      <a href="{{route('certifications.deactivate',$data->slug)}}" class="btn btn-secondary btn-sm text-white">Deactivate</a>
                       @else
-                      <a href="{{route('licence.activate',$data->slug)}}" class="btn btn-warning btn-sm text-white">Activate</a>
+                      <a href="{{route('certifications.activate',$data->slug)}}" class="btn btn-warning btn-sm text-white">Activate</a>
                       @endif
-                      <a onclick="return deleteAction();" href="{{route('licence.delete',$data->slug)}}" class="btn btn-danger btn-sm text-white">Delete</a>
+                      <a onclick="return deleteAction();" href="{{route('certifications.delete',$data->slug)}}" class="btn btn-danger btn-sm text-white">Delete</a>
                     </td>
                   </tr>
                   @endforeach

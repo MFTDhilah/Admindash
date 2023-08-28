@@ -42,7 +42,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label for="name">Nama Layanan</label>
-                        <input type="text" class="form-control" name="nama_layanan" value="{{$data->name_layanan}}">
+                        <input type="text" class="form-control" name="nama_layanan" value="{{$data->nama_layanan}}">
                       </div>
                     </div>
                   </div>
@@ -58,7 +58,7 @@
                   <div class="col-md-4">
                     <div class="form-group">
                         <label for="name">Price</label>
-                        <input type="text" class="form-control" name="price" value="{{$data->price}}">
+                        <input type="text" class="form-control" name="harga" value="{{$data->harga}}">
                       </div>
                   </div>
                 </div>
@@ -66,7 +66,7 @@
                     <div class="col-md-4">
                       <div class="form-group">
                           <label for="name">Time</label>
-                          <input type="text" class="form-control" name="time" value="{{$data->waktu}}">
+                          <input type="text" class="form-control" name="waktu" value="{{$data->waktu}}">
                         </div>
                     </div>
                   </div>

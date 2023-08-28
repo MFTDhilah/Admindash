@@ -41,9 +41,9 @@
               <a class="dropdown-item" href="\p100">Package 100</a>
               <a class="dropdown-item" href="\p150">Package 150</a>
               <a class="dropdown-item" href="\p200">Package 200</a>
-              <a class="dropdown-item" href="\prewedbronze">Package Prewedding Bronze</a>
-              <a class="dropdown-item" href="\prewedsilver">Package Prewedding Silver</a>
-              <a class="dropdown-item" href="\prewedgold">Package Prewedding Gold</a>
+              <a class="dropdown-item" href="\bronze">Package Prewedding Bronze</a>
+              <a class="dropdown-item" href="\silver">Package Prewedding Silver</a>
+              <a class="dropdown-item" href="\gold">Package Prewedding Gold</a>
               </div>
               <a class="dropdown-item" href="#">Product</a>
             </div>
@@ -52,7 +52,7 @@
             <a class="nav-link" href="#feedback-section">Reviews</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#facilities-section">Facilities</a>
+            <a class="nav-link" href="\#facilities-section">Facilities</a>
           </li>
           <li class="nav-item btn-contact-us pl-4 pl-lg-0">
             <a href="https://api.whatsapp.com/send?phone=628115988858&fbclid=IwAR0qxlJod4tMMzq7tzN0xJkhrB6oAfWTPtVl0rH37dOzvUgEhr6Ohe0zSS0">

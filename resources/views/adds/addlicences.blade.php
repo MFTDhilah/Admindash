@@ -42,35 +42,40 @@
             <div class="card">
               <!-- /.card-header -->
               <div class="card-body">
-                <div class="card-body">                    
-                  @if(session('msg'))
-                  <div class="alert alert-info alert-sm alert-dismissible">{{session('msg')}}</div>
-                  @endif    
-                  <div class="col-md-2 float-sm-right my-2">
-                    <a href="{{route('certification.all')}}"><button type="button" class="btn btn-sm btn-primary btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back to Facilities</button></a>
-                  </div>               
-                  <div class="row">
-                    <div class="col-md-12">
-                      <strong>Name: </strong> {{$data->name}}
-                      <small>
-                        <br>
-                        <strong>Added By: </strong>
-                        @if($data->getUser()) {{$data->getUser()->name}} @endif
-                        <br><strong>Date Added: </strong>{{\Carbon\Carbon::parse($data->created_at)->format('d-M-Y g:i:A')}}
-                      </small>
-                      <br>
-                      <strong>Image</strong><br>
-                      <img src="data:image/png;base64,{{$data->image}}" class="img-fluid"/>
-                    </div>
-                  </div>                     
-                  <div class="row">
-                    <div class="col-md-12">
-                      <strong>Content</strong>
-                      {{$data->content}}
-                    </div>
-                  </div>                      
-                </div>                                                      
-              </div>
+                <form method="POST" action="{{route('licences.save')}}" enctype="multipart/form-data">
+                  @csrf()
+                  <div class="card-body">                    
+                    @if(session('msg'))
+                    <div class="alert alert-info alert-sm alert-dismissible">{{session('msg')}}</div>
+                    @endif                   
+                    <div class="row">
+                      <div class="col-md-8">
+                        <div class="form-group">
+                          <label for="name">Post Name</label>
+                          <input type="text" class="form-control" name="name" required>
+                        </div>
+                      </div> 
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <label for="name">Post Image</label>
+                          <input type="file" class="form-control" name="postimage">
+                        </div>
+                      </div>                     
+                    </div> 
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label for="name">Post Content</label>
+                          <textarea class="form-control" name="content"></textarea>
+                        </div>
+                      </div>                      
+                    </div>                                                      
+                </div>
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
             </div>
             <!-- /.card-body -->
           </div>

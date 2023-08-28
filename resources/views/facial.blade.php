@@ -30,7 +30,7 @@
             @foreach($facial as $data)
             @if($data->status==1)
             <div class="col-md-4 pt-4">
-              <div class="price-card featured" style="max-height: 465px;">
+              <div class="price-card featured" style="max-height: 465px;min-height: 465px">
                 <h2>{{$data->nama_layanan}}</h2>
                 <p>{{$data->content}}</p>
                 <p class="price"><span>{{$data->harga}}</span>/{{$data->waktu}}</p>

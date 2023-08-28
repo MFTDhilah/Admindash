@@ -70,7 +70,7 @@
                         </div>
                       </div>                      
                     </div>  
-                    <div class="form-group"> <label>Kategori</label> 
+                    <!-- <div class="form-group"> <label>Kategori</label> 
                       <select name="kategori" class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Pilih Kategori" style="width: 100%;" tabindex="-1" aria-hidden="true">
                         <option value="landing">Landing</option>
                         <option value="facial">Facial Treatment</option>
@@ -78,7 +78,7 @@
                         <option value="hair">Hair Treatment</option>
                         <option value="naillash">Nail & Lash Treatment</option>
                       </select> 
-                    </div>                                                  
+                    </div>                                                   -->
                   </div>
                 <!-- /.card-body -->
                 <div class="card-footer">

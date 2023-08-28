@@ -68,6 +68,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('licences.all')}}" class="nav-link">
+                        <i class="nav-icon fas fa-th" aria-hidden="true"></i>
+                        <p>
+                            License
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{route('postsworker.all')}}" class="nav-link">
                         <i class="nav-icon fas fa-th" aria-hidden="true"></i>
                         <p>
@@ -76,10 +84,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{route('reviews.all')}}" class="nav-link">
+                    <a href="{{route('certifications.all')}}" class="nav-link">
                         <i class="nav-icon fas fa-th" aria-hidden="true"></i>
                         <p>
-                            Review
+                            Certifications
                         </p>
                     </a>
                 </li>

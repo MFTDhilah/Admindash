@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PreweddingSilver extends Model
 {
-	protected $table = 'price_prewedding_bronze';
+	protected $table = 'price_prewedding_silver';
 
 	protected $fillable = ['nama_layanan', 'user_id', 'slug', 'content', 'waktu', 'harga', 'status'];
 

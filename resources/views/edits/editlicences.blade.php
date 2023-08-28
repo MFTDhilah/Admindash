@@ -34,9 +34,9 @@
                 <div class="alert alert-info alert-sm alert-dismissible">{{session('msg')}}</div>
                 @endif    
                 <div class="col-md-2 float-sm-right my-2">
-                  <a href="{{route('certification.all')}}"><button type="button" class="btn btn-sm btn-primary btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back to Facilities</button></a>
+                  <a href="{{route('licences.all')}}"><button type="button" class="btn btn-sm btn-primary btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back to Facilities</button></a>
                 </div> 
-                <form method="POST" action="{{route('certification.update',$data->slug)}}" enctype="multipart/form-data">
+                <form method="POST" action="{{route('licences.update',$data->slug)}}" enctype="multipart/form-data">
                   @csrf()                   
                   <div class="row">
                     <div class="col-md-12">
@@ -64,7 +64,7 @@
                   @if($data->image)
                   <div class="col-md-8">
                     <div class="img-wrap"  style="max-width:210px">
-                      <a onclick="return deleteAction();" href="{{route('certification.deletepostimage',$data->slug)}}"><span class="close deletelogos">&times;</span></a>
+                      <a onclick="return deleteAction();" href="{{route('licences.deletepostimage',$data->slug)}}"><span class="close deletelogos">&times;</span></a>
                       <img src="data:image/png;base64,{{$data->image}}" class="img-fluid" data-id="{{$data->slug}}" style="max-width:400px"><br>
                     </div>
                   </div>

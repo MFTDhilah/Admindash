@@ -129,30 +129,30 @@ class ServicesHairController extends Controller
         else{
         //Validation
         $validatearray = [
-            'name' => 'required'
+            'nama_layanan' => 'required'
         ];
 
         $request->validate($validatearray);
 
         //Generate Slug
-        if($request->nama_layanan != $thisserviceshair->nama_layanan){
+        if($request->nama_layanan != $thisservicehair->nama_layanan){
            $slug = str()->slug($request->name."-".time());
         }
         else{
-             $slug = $thisserviceshair->slug;
+             $slug = $thisservicehair->slug;
         }
 
         //Update
-        $thisserviceshair->update([
+        $thisservicehair->update([
             'nama_layanan' => $request->nama_layanan,
             'user_id' => Auth::user()->id,
             'slug' => $slug,
             'content' => $request->content,
-            'waktu' => $request -> waktu,
+            'waktu' => $request ->waktu,
             'harga' => $request->harga
         ]);
 
-        return redirect()->route('serviceshair.edit',$thisserviceshair->slug)->with('msg','Package updated');
+        return redirect()->route('serviceshair.edit',$thisservicehair->slug)->with('msg','Package updated');
 
         }
     }
