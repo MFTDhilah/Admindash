@@ -27,6 +27,7 @@
           <div class="col-12 col-md-6 col-lg-3 grid-margin">
               <h5 class="pb-2">Our address</h5>
               <p class="text-muted">Jl. Strat 2 Gang Mulyo RT. 17 No. 90<br>Gunung Samarinda<br>Balikpapan Utara</p>
+              <h5 class="pb-2">Contact Us</h5>
               <div class="d-flex justify-content-center justify-content-md-start">
                 <a href="https://api.whatsapp.com/send?phone=628115988858&fbclid=IwAR0qxlJod4tMMzq7tzN0xJkhrB6oAfWTPtVl0rH37dOzvUgEhr6Ohe0zSS0"><span class="mdi mdi-whatsapp"></span></a>
                 <a href="https://www.instagram.com/red_facialandbodytreatment"><span class="mdi mdi-instagram"></span></a>
