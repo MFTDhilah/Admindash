@@ -34,7 +34,7 @@
                 <div class="alert alert-info alert-sm alert-dismissible">{{session('msg')}}</div>
                 @endif    
                 <div class="col-md-2 float-sm-right my-2">
-                  <a href="{{route('certifications.all')}}"><button type="button" class="btn btn-sm btn-primary btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back to Facilities</button></a>
+                  <a href="{{route('certifications.all')}}"><button type="button" class="btn btn-sm btn-primary btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back to Certifications</button></a>
                 </div> 
                 <form method="POST" action="{{route('certifications.update',$data->slug)}}" enctype="multipart/form-data">
                   @csrf()                   

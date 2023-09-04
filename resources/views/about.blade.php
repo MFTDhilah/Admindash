@@ -49,8 +49,9 @@
           @endif
       </section>
       <section class="services" id="services-section">
-        <div class="row grid-margin" style="justify-content:center">
-          <div class="col-12 text-center pb-5">
+        <div class="row grid-margin" style="align-items:center">
+          <div class="col-12 text-center">
+            <br>
             <h2>Sertification</h2>
             <h6 class="section-subtitle text-muted"></h6>
           </div>
@@ -109,10 +110,7 @@
           </div>
         </div>
       </section>
-      <section class="contact-us" id="contact-section">
-        <div class="grid-margin" >
 
-        </div>
         <section class="customer-feedback" id="feedback-section">
         <div class="row">
           <div class="col-12 text-center pb-5">

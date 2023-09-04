@@ -65,20 +65,20 @@ class CertificationsController extends Controller
         $slug = str()->slug($request->name."-".time());
 
         //Create Post
-        $licence = new Certifications;
-        $licence->name = $request->name;
-        $licence->user_id = Auth::user()->id;
-        $licence->slug = $slug;
-        $licence->content = $request->content;
-        $licence->status = 1;
+        $certification = new Certifications;
+        $certification->name = $request->name;
+        $certification->user_id = Auth::user()->id;
+        $certification->slug = $slug;
+        $certification->content = $request->content;
+        $certification->status = 1;
 
         if($request->file('postimage')){
             $path = $request->file('postimage')->getRealPath();
             $image = file_get_contents($path);
             $postimage = base64_encode($image);
-            $licence->image = $postimage;
+            $certification->image = $postimage;
         }
-        $licence->save();
+        $certification->save();
 
         return redirect()->route('certifications.all')->with('msg','Succesully Added');
     }
@@ -95,10 +95,10 @@ class CertificationsController extends Controller
 
         if($data){
             $page_title = $data->name." View";
-            return view('details.viewlicence',compact('data','page_title'));
+            return view('details.viewcertifications',compact('data','page_title'));
         }
         else{
-            return redirect()->back()->with('msg','Licence not found');
+            return redirect()->back()->with('msg','Certification not found');
         }
     }
 
@@ -114,10 +114,10 @@ class CertificationsController extends Controller
 
         if($data){
             $page_title = $data->name." Edit";
-            return view('edits.editlicence',compact('data','page_title'));
+            return view('edits.editcertifications',compact('data','page_title'));
         }
         else{
-            return redirect()->back()->with('msg','Licence not found');
+            return redirect()->back()->with('msg','Certification not found');
         }
     }
 
@@ -130,10 +130,10 @@ class CertificationsController extends Controller
      */
     public function update(Request $request, $slug)
     {
-        $thislicence = Certifications::where('slug',$slug)->where('status','!=',9)->first();
+        $thiscertification = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if(!$thislicence){
-            return redirect()->back()->with('msg','Licence not found');
+        if(!$thiscertification){
+            return redirect()->back()->with('msg','Certification not found');
         }
         else{
         //Validation
@@ -149,11 +149,11 @@ class CertificationsController extends Controller
         $request->validate($validatearray);
 
         //Generate Slug
-        if($request->name != $thislicence->name){
+        if($request->name != $thiscertification->name){
            $slug = str()->slug($request->name."-".time());
         }
         else{
-             $slug = $thislicence->slug;
+             $slug = $thiscertification->slug;
         }
 
         //Image
@@ -163,11 +163,11 @@ class CertificationsController extends Controller
             $postimage = base64_encode($image);
         }
         else{
-            $postimage = $thislicence->image;
+            $postimage = $thiscertification->image;
         }
 
         //Update
-        $thislicence->update([
+        $thiscertification->update([
             'name' => $request->name,
             'user_id' => Auth::user()->id,
             'slug' => $slug,
@@ -175,44 +175,44 @@ class CertificationsController extends Controller
             'image' => $postimage
         ]);
 
-        return redirect()->route('certifications.edit',$thislicence->slug)->with('msg','Licence updated');
+        return redirect()->route('certifications.edit',$thiscertification->slug)->with('msg','Certification updated');
 
         }
     }
 
     public function publish($slug){
-        $licence = Certifications::where('slug',$slug)->where('status','!=',9)->first();
+        $certification = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($licence){
-            $licence->update(['status' => 1]);
-            return redirect()->back()->with('msg','Licence succesully activated');
+        if($certification){
+            $certification->update(['status' => 1]);
+            return redirect()->back()->with('msg','Certification succesully activated');
         }
         else{
-            return redirect()->back()->with('msg','Licence not found');
+            return redirect()->back()->with('msg','Certification not found');
         }
 
     }
 
     public function unpublish($slug){
-        $licence = Certifications::where('slug',$slug)->where('status','!=',9)->first();
+        $certification = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($licence){
-            $licence->update(['status' => 0]);
-            return redirect()->back()->with('msg','Licence succesully deactivated');
+        if($certification){
+            $certification->update(['status' => 0]);
+            return redirect()->back()->with('msg','Certification succesully deactivated');
         }
         else{
-            return redirect()->back()->with('msg','Licence not found');
+            return redirect()->back()->with('msg','Certification not found');
         }
     }
     public function deleteimage($slug){
-        $licence = Certifications::where('slug',$slug)->where('status','!=',9)->first();
+        $certification = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($licence){
-            $licence->update(['image' => NULL]);
-            return redirect()->route('certifications.edit',$licence->slug)->with('msg','Licence Image Deleted');
+        if($certification){
+            $certification->update(['image' => NULL]);
+            return redirect()->route('certifications.edit',$certification->slug)->with('msg','Certification Image Deleted');
         }
         else{
-            return redirect()->back()->with('msg','Licence not found');
+            return redirect()->back()->with('msg','Certification not found');
         }
     }
 
@@ -225,14 +225,14 @@ class CertificationsController extends Controller
      */
     public function destroy($slug)
     {
-        $licence = Certifications::where('slug',$slug)->where('status','!=',9)->first();
+        $certification = Certifications::where('slug',$slug)->where('status','!=',9)->first();
 
-        if($licence){
-            $licence->update(['status' => 9]);
-            return redirect()->back()->with('msg','Licence succesully deleted');
+        if($certification){
+            $certification->update(['status' => 9]);
+            return redirect()->back()->with('msg','Certification succesully deleted');
         }
         else{
-            return redirect()->back()->with('msg','Licence not found');
+            return redirect()->back()->with('msg','Certification not found');
         }
     }
 }

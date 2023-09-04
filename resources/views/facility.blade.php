@@ -26,7 +26,6 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-6">
-            <h1 class="m-0">Facilities</h1>
           </div><!-- /.col -->
         <div class="col-12">
           @if ($errors->any())
@@ -45,10 +44,10 @@
             <!-- /.card-header -->
             <div class="card-body">
               <div class="col-md-2 float-sm-right my-2">
-                <a href="{{url()->previous()}}"><button type="button" class="btn btn-sm btn-primary btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back</button></a>
+                <a href="{{url()->previous()}}"><button type="button" class="btn btn-sm btn-danger btn-block text-white btn-inline"><i class="fa fa-arrow-left"></i> Back</button></a>
               </div>
               <div class="col-md-2 pull-right my-2">
-                <a href="{{route('facility.add')}}"><button type="button" class="btn btn-sm btn-outline-primary btn-block"><i class="fa fa-add"></i> Add</button></a>
+                <a href="{{route('facility.add')}}"><button type="button" class="btn btn-sm btn-outline-danger btn-block"><i class="fa fa-add"></i> Add</button></a>
               </div>
               <table class="table table-bordered table-hover">
                 <thead>
